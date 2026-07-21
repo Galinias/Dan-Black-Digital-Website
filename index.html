@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Dan Black Digital — landing page -->
+<meta charset="UTF-8" />
+<title>Dan Black Digital — Information Management &amp; BIM Advisory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="ISO 19650 information management, CDE governance and Golden Thread advisory for UK construction — bespoke consulting plus practical courses and templates." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --void: #05090D;
+    --charcoal: #080F15;
+    --ink: #0C141D;
+    --steel: #131E28;
+    --dusk: #0C151D;
+    --violet: #8B19FF;
+    --violet-soft: #A855F7;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--void);
+    color: rgba(255,255,255,0.82);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #fff; }
+
+  .font-light-display { font-weight: 300; letter-spacing: -0.03em; }
+  .font-semibold-tight { font-weight: 600; }
+
+  .eyebrow {
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--violet-soft);
+  }
+
+  /* grain texture overlay */
+  .grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .glow-violet {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+
+  /* corner-fold motif, echoing the logo's dog-eared mark */
+  .fold-card {
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+  }
+  .fold-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--void);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+
+  .card-shadow {
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.04) inset,
+      0 20px 40px -18px rgba(139,25,255,0.22),
+      0 8px 24px -12px rgba(0,0,0,0.6);
+  }
+  .card-shadow-hover:hover {
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.06) inset,
+      0 28px 56px -18px rgba(139,25,255,0.32),
+      0 10px 30px -12px rgba(0,0,0,0.7);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--violet);
+    color: var(--void);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.9rem;
+    border-radius: 999px;
+    transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 240ms ease, background 240ms ease;
+    box-shadow: 0 14px 30px -10px rgba(139,25,255,0.55);
+  }
+  .btn-primary:hover { transform: translateY(-2px); background: #9b33ff; }
+  .btn-primary:active { transform: translateY(0px) scale(0.98); }
+  .btn-primary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), border-color 240ms ease, background 240ms ease;
+  }
+  .btn-ghost:hover { border-color: var(--violet-soft); background: rgba(139,25,255,0.08); transform: translateY(-2px); }
+  .btn-ghost:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--void);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.9rem;
+    border-radius: 999px;
+    transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 240ms ease;
+  }
+  .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5); }
+  .btn-dark:focus-visible { outline: 2px solid var(--void); outline-offset: 3px; }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--violet-soft); outline-offset: 3px; border-radius: 4px; }
+
+  /* icon chip, per brand iconography style */
+  .icon-chip {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.9rem;
+    background: var(--ink);
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--violet-soft);
+    transition: background 240ms ease, color 240ms ease, transform 240ms ease;
+  }
+  .group:hover .icon-chip {
+    background: var(--violet);
+    color: var(--void);
+    transform: translateY(-2px);
+  }
+
+  .divider-hair { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); }
+
+  /* image treatment: gradient + violet colour layer, per brand guardrails */
+  .img-frame { position: relative; overflow: hidden; }
+  .img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,9,13,0.85), rgba(5,9,13,0.15) 55%, transparent 80%);
+    pointer-events: none;
+  }
+  .img-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--violet);
+    mix-blend-mode: multiply;
+    opacity: 0.16;
+    pointer-events: none;
+  }
+
+  /* nav dropdown */
+  .nav-drop { opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; }
+  .group:hover .nav-drop, .group:focus-within .nav-drop { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  /* accordion */
+  .accordion-item { border-top: 1px solid rgba(255,255,255,0.08); }
+  .accordion-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .accordion-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.35rem 0;
+    color: #fff;
+    font-weight: 600;
+    transition: color 200ms ease;
+  }
+  .accordion-item summary::-webkit-details-marker { display: none; }
+  .accordion-item summary:hover { color: var(--violet-soft); }
+  .accordion-icon { flex-shrink: 0; color: var(--violet-soft); }
+  .accordion-icon .acc-vert { transform-box: fill-box; transform-origin: center; transition: transform 240ms ease, opacity 240ms ease; }
+  .accordion-item[open] .accordion-icon .acc-vert { transform: scaleY(0); opacity: 0; }
+  .accordion-body { padding-bottom: 1.6rem; color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 42rem; }
+
+  .link-arrow { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--violet-soft); font-weight: 600; font-size: 0.85rem; }
+  .link-arrow svg { transition: transform 200ms ease; }
+  .link-arrow:hover svg { transform: translateX(3px); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary, .btn-ghost, .btn-dark, .icon-chip, .nav-drop, .accordion-icon, .link-arrow svg, .hero-shape {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* hero background: floating elegant shapes, behind hero text */
+  .hero-shapes { pointer-events: none; }
+
+  .hero-shape {
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    left: var(--x, auto);
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--tint), transparent);
+    border: 2px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 8px 32px rgba(255,255,255,0.1);
+    opacity: 0;
+    transform: translateY(-150px) rotate(calc(var(--rot) - 15deg));
+    animation:
+      hero-shape-in 2.4s var(--delay) cubic-bezier(0.23,0.86,0.39,0.96) forwards,
+      hero-shape-float 12s calc(var(--delay) + 2.4s) ease-in-out infinite;
+  }
+  .hero-shape::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.22), transparent 70%);
+  }
+
+  @keyframes hero-shape-in {
+    0% { opacity: 0; transform: translateY(-150px) rotate(calc(var(--rot) - 15deg)); }
+    100% { opacity: 1; transform: translateY(0) rotate(var(--rot)); }
+  }
+  @keyframes hero-shape-float {
+    0%, 100% { transform: translateY(0) rotate(var(--rot)); }
+    50% { transform: translateY(15px) rotate(var(--rot)); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[var(--void)]/80 border-b border-white/5">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-4">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="brand_assets/logo-dark-background.png" alt="Dan Black Digital" class="h-9 w-9 rounded-[10px]" />
+      <span class="hidden sm:block text-white font-semibold-tight tracking-tight text-[0.95rem]">
+        DAN BLACK <span class="text-white/50 font-light-display">DIGITAL</span>
+      </span>
+    </a>
+    <div class="hidden md:flex items-center gap-9 text-[0.82rem] font-medium text-white/70">
+      <div class="relative group">
+        <a href="#services" class="flex items-center gap-1 hover:text-white transition-colors">
+          Services
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-drop absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64">
+          <div class="rounded-xl border border-white/10 p-2 card-shadow" style="background: var(--ink);">
+            <a href="#services" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Information Management</a>
+            <a href="#services" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Golden Thread Readiness</a>
+            <a href="#services" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">EIR &amp; BEP Review</a>
+            <a href="#services" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Advisory Retainers</a>
+          </div>
+        </div>
+      </div>
+      <a href="#courses" class="hover:text-white transition-colors">Courses &amp; templates</a>
+      <a href="#about" class="hover:text-white transition-colors">About</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </div>
+    <a href="#contact" class="btn-primary !py-3 !px-5 !text-[0.7rem]">Book a consultation</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero relative overflow-hidden pt-32 pb-24 px-6 lg:px-10 min-h-[640px] flex items-center" style="background: var(--void);">
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--violet)]/[0.07] via-transparent to-[var(--violet-soft)]/[0.06]" style="filter: blur(60px);"></div>
+
+    <div class="hero-shapes absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="hero-shape" style="--w:620px; --h:150px; --rot:12deg; --delay:0.1s; --tint:rgba(139,25,255,0.20); left:-12%; top:14%;"></div>
+      <div class="hero-shape" style="--w:460px; --h:120px; --rot:-16deg; --delay:0.3s; --tint:rgba(168,85,247,0.18); right:-6%; top:60%;"></div>
+      <div class="hero-shape" style="--w:300px; --h:80px; --rot:-8deg; --delay:0.2s; --tint:rgba(139,25,255,0.14); left:8%; bottom:8%;"></div>
+      <div class="hero-shape" style="--w:190px; --h:56px; --rot:20deg; --delay:0.45s; --tint:rgba(168,85,247,0.16); right:16%; top:12%;"></div>
+      <div class="hero-shape" style="--w:140px; --h:38px; --rot:-25deg; --delay:0.55s; --tint:rgba(139,25,255,0.12); left:26%; top:6%;"></div>
+    </div>
+
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--void)] via-transparent to-[var(--void)]/70"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto w-full">
+      <div class="max-w-xl">
+        <p class="eyebrow mb-4">Information Management &amp; BIM Advisory</p>
+        <h1 class="font-light-display text-[2.3rem] leading-[1.1] sm:text-5xl lg:text-[3.4rem] text-white mb-6">
+          The Golden Thread,<br /><span class="font-semibold-tight" style="color: var(--violet-soft);">without the tangle.</span>
+        </h1>
+        <a href="#contact" class="btn-primary !text-[0.7rem]">Get started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="px-6 lg:px-10 pb-24">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-[1fr_1.4fr] gap-8 items-start">
+      <div></div>
+      <div class="max-w-2xl">
+        <p class="text-white/70 text-[1.1rem] sm:text-xl font-light-display leading-relaxed mb-4">
+          Redefining how project teams handle information, Dan Black Digital combines real project
+          experience with strategic ISO&nbsp;19650 and Golden Thread implementation.
+        </p>
+        <a href="#about" class="link-arrow">Discover more about Dan Black Digital
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="px-6 lg:px-10 pb-24">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-light-display text-3xl sm:text-4xl mb-10">Services</h2>
+      <div class="grid lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-14 items-start">
+        <div class="img-frame relative rounded-xl overflow-hidden card-shadow" style="aspect-ratio: 4/5;">
+          <img src="https://placehold.co/700x820/131E28/2A3542?text=" alt="Information management workspace" />
+        </div>
+        <div>
+          <details class="accordion-item" open>
+            <summary>Information Management
+              <span class="accordion-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><line class="acc-vert" x1="12" y1="5" x2="12" y2="19"/></svg></span>
+            </summary>
+            <div class="accordion-body">
+              Information management sits at the heart of everything we do — CDE audits and setup, and
+              governing how a project's data moves through its four states: work in progress, shared,
+              published, and archived.
+              <div class="mt-4"><a href="#contact" class="link-arrow">Learn more
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a></div>
+            </div>
+          </details>
+          <details class="accordion-item">
+            <summary>Golden Thread Readiness
+              <span class="accordion-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><line class="acc-vert" x1="12" y1="5" x2="12" y2="19"/></svg></span>
+            </summary>
+            <div class="accordion-body">
+              Practical readiness assessments for Duty Holders and Principal Contractors under the
+              Building Safety Act.
+            </div>
+          </details>
+          <details class="accordion-item">
+            <summary>EIR &amp; BEP Review and Drafting
+              <span class="accordion-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><line class="acc-vert" x1="12" y1="5" x2="12" y2="19"/></svg></span>
+            </summary>
+            <div class="accordion-body">
+              Getting Exchange Information Requirements and BIM Execution Plans right at the source,
+              not just present on paper.
+            </div>
+          </details>
+          <details class="accordion-item">
+            <summary>Ongoing Advisory Retainers
+              <span class="accordion-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><line class="acc-vert" x1="12" y1="5" x2="12" y2="19"/></svg></span>
+            </summary>
+            <div class="accordion-body">
+              Continuous support for organisations with ongoing compliance and governance needs.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COURSES CALLOUT ============ -->
+  <section class="px-6 lg:px-10 pb-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden p-8 sm:p-10 grid sm:grid-cols-[1fr_auto] gap-8 items-center" style="background: var(--violet);">
+        <div class="grain" style="opacity:0.12;"></div>
+        <div class="relative">
+          <h2 class="font-light-display text-2xl sm:text-3xl mb-3" style="color: var(--void);">Courses &amp; Templates</h2>
+          <p class="max-w-lg mb-6 text-[0.98rem]" style="color: rgba(5,9,13,0.75);">
+            Self-paced courses and ready-to-use templates — ISO&nbsp;19650 Foundations, CDE Setup &amp;
+            Governance, and Golden Thread &amp; the Building Safety Act — hosted on Kajabi.
+          </p>
+          <a href="#courses" class="btn-dark">See what's inside</a>
+        </div>
+        <div class="relative hidden sm:block w-40 h-32 rounded-lg overflow-hidden card-shadow">
+          <img src="https://placehold.co/300x220/05090D/A855F7?text=" alt="Course and template preview" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DISCIPLINE STRIP ============ -->
+  <section class="border-y border-white/5" style="background: var(--charcoal);">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 py-10">
+      <p class="text-center text-white/40 text-xs tracking-[0.15em] uppercase mb-6">Built on real project experience across the full lifecycle</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-white/70 font-semibold-tight text-sm sm:text-base">
+        <span>Sales</span>
+        <span class="text-white/15">·</span>
+        <span>Quantity Surveying</span>
+        <span class="text-white/15">·</span>
+        <span>Revit Modelling</span>
+        <span class="text-white/15">·</span>
+        <span>BIM Management</span>
+        <span class="text-white/15">·</span>
+        <span>Golden Thread &amp; Information Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENGAGEMENTS ============ -->
+  <section id="courses" class="px-6 lg:px-10 py-24">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-light-display text-3xl sm:text-4xl mb-10">Example Engagements</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="Residential CDE setup engagement" />
+          </div>
+          <p class="eyebrow mb-2">Residential · CDE Setup</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">Common Data Environment Setup</h3>
+          <p class="text-white/45 text-sm mb-3">Multi-site developer, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="Golden Thread readiness engagement" />
+          </div>
+          <p class="eyebrow mb-2">Infrastructure · Golden Thread</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">Golden Thread Readiness Assessment</h3>
+          <p class="text-white/45 text-sm mb-3">Principal contractor, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="EIR and BEP drafting engagement" />
+          </div>
+          <p class="eyebrow mb-2">Design · EIR &amp; BEP</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">EIR &amp; BEP Review and Drafting</h3>
+          <p class="text-white/45 text-sm mb-3">Design practice, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE BANNER ============ -->
+  <section class="px-6 lg:px-10 pb-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="img-frame relative rounded-2xl overflow-hidden card-shadow" style="aspect-ratio: 16/8;">
+        <img src="https://placehold.co/1600x800/0C141D/2A3542?text=" alt="Golden Thread audit in progress" />
+        <div class="absolute left-6 bottom-6 sm:left-9 sm:bottom-9 max-w-md">
+          <p class="eyebrow mb-2">Case study</p>
+          <h3 class="text-white font-light-display text-2xl sm:text-3xl">Inside a Golden Thread audit</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="px-6 lg:px-10 py-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="img-frame relative rounded-2xl overflow-hidden card-shadow" style="aspect-ratio: 16/9;">
+        <img src="https://placehold.co/1600x900/131E28/2A3542?text=" alt="Dan Black on site" />
+        <div class="absolute left-6 bottom-6 sm:left-10 sm:bottom-10 max-w-md p-7 rounded-xl" style="background: rgba(5,9,13,0.85); backdrop-filter: blur(6px);">
+          <h3 class="text-white font-semibold-tight text-lg mb-3">The strength of Dan Black Digital lies in real project experience.</h3>
+          <p class="text-white/55 text-sm mb-4">
+            A career spent across sales, quantity surveying, Revit modelling, BIM management, and
+            Golden Thread delivery — brought together to make information management make sense.
+          </p>
+          <a href="#about" class="link-arrow">Meet Dan
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="px-6 lg:px-10 py-24 border-y border-white/5" style="background: var(--charcoal);">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-[380px_1fr] gap-14 items-center">
+      <div class="relative mx-auto lg:mx-0">
+        <div class="glow-violet w-64 h-64 -top-8 -left-8 bg-[radial-gradient(circle,rgba(139,25,255,0.28),transparent_70%)]"></div>
+        <img src="https://placehold.co/560x680/0C141D/A855F7?text=Dan+Black" alt="Dan Black, founder of Dan Black Digital" class="relative fold-card w-full max-w-sm rounded-sm card-shadow" />
+      </div>
+      <div>
+        <p class="eyebrow mb-4">Who's behind it</p>
+        <h2 class="font-light-display text-3xl sm:text-4xl lg:text-5xl mb-6">Dan Black</h2>
+        <p class="text-white/65 text-[1.02rem] mb-6 max-w-xl">
+          Before this was a business, it was a career spent moving between sides of the same problem: sales,
+          quantity surveying, Revit modelling, BIM management, and Golden Thread and information management
+          delivery. That range is the point — most information management advice comes from one discipline
+          talking at the rest of the project. Dan Black Digital is built to make sense across all of them.
+        </p>
+        <p class="text-white/50 text-[0.95rem] max-w-xl">
+          Make information management and BIM compliance understandable and achievable — through practical
+          courses, ready-to-use templates, and expert consulting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSIGHTS ============ -->
+  <section class="px-6 lg:px-10 py-24">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-light-display text-3xl sm:text-4xl mb-10">Latest Insights</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/0C141D/2A3542?text=" alt="What is a Golden Thread" />
+          </div>
+          <p class="eyebrow mb-2">Insights</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-3">What is a Golden Thread?</h3>
+          <a href="#" class="link-arrow">Read more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/0C141D/2A3542?text=" alt="Five CDE mistakes to avoid" />
+          </div>
+          <p class="eyebrow mb-2">Insights</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-3">Five CDE Mistakes to Avoid</h3>
+          <a href="#" class="link-arrow">Read more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/0C141D/2A3542?text=" alt="ISO 19650 in plain English" />
+          </div>
+          <p class="eyebrow mb-2">Insights</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-3">ISO 19650, in Plain English</h3>
+          <a href="#" class="link-arrow">Read more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="relative px-6 lg:px-10 pb-24">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden px-8 py-14 sm:px-14 sm:py-16 text-center" style="background: var(--violet);">
+        <div class="grain" style="opacity:0.12;"></div>
+        <div class="relative max-w-2xl mx-auto">
+          <img src="brand_assets/logo-accent-background.png" alt="Dan Black Digital" class="h-14 w-14 rounded-2xl mx-auto mb-8" />
+          <h2 class="font-light-display text-3xl sm:text-4xl lg:text-5xl mb-6" style="color: var(--void);">
+            Let's get your information under control.
+          </h2>
+          <p class="max-w-xl mx-auto mb-10 text-[1.02rem]" style="color: rgba(5,9,13,0.72);">
+            Book a call. We'll figure out whether this is a quick fix or a proper engagement — no pressure either way.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="mailto:hello@danblackdigital.co.uk" class="btn-dark">Contact us</a>
+            <a href="mailto:hello@danblackdigital.co.uk" class="font-semibold-tight text-sm tracking-wide" style="color: var(--void);">hello@danblackdigital.co.uk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="px-6 lg:px-10 py-14" style="background: var(--void);">
+  <div class="max-w-6xl mx-auto">
+    <div class="divider-hair mb-10"></div>
+    <div class="grid sm:grid-cols-[1fr_auto] gap-10 mb-10">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="brand_assets/logo-dark-background.png" alt="Dan Black Digital" class="h-8 w-8 rounded-[8px]" />
+        <span class="text-white/80 font-semibold-tight text-sm">DAN BLACK DIGITAL</span>
+      </a>
+      <div class="flex flex-wrap gap-x-14 gap-y-8">
+        <div>
+          <p class="text-white/30 text-xs tracking-[0.15em] uppercase mb-3">Links</p>
+          <div class="flex flex-col gap-2 text-white/55 text-sm">
+            <a href="#services" class="hover:text-white transition-colors">Services</a>
+            <a href="#courses" class="hover:text-white transition-colors">Courses &amp; templates</a>
+            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs tracking-[0.15em] uppercase mb-3">Legal</p>
+          <div class="flex flex-col gap-2 text-white/55 text-sm">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs tracking-[0.15em] uppercase mb-3">Socials</p>
+          <div class="flex flex-col gap-2 text-white/55 text-sm">
+            <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-white/25 text-xs max-w-2xl">
+        Templates and courses are practical guidance, not a substitute for formal compliance sign-off.
+      </p>
+      <p class="text-white/30 text-xs">© 2026 Dan Black Digital</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

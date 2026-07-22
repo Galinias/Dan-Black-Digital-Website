@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Dan Black Digital — work & impact -->
+<meta charset="UTF-8" />
+<title>Work &amp; Impact — Dan Black Digital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Digital strategy, information management, Golden Thread and BIM engagements delivered by Dan Black Digital across the built environment." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --void: #05090D;
+    --charcoal: #080F15;
+    --ink: #0C141D;
+    --steel: #131E28;
+    --dusk: #0C151D;
+    --violet: #8B19FF;
+    --violet-soft: #A855F7;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--void);
+    color: rgba(255,255,255,0.82);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #fff; }
+
+  .font-light-display { font-weight: 300; letter-spacing: -0.03em; }
+  .font-semibold-tight { font-weight: 600; }
+
+  .eyebrow {
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--violet-soft);
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .card-shadow {
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.04) inset,
+      0 20px 40px -18px rgba(139,25,255,0.22),
+      0 8px 24px -12px rgba(0,0,0,0.6);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--violet);
+    color: var(--void);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.9rem;
+    border-radius: 999px;
+    transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 240ms ease, background 240ms ease;
+    box-shadow: 0 14px 30px -10px rgba(139,25,255,0.55);
+  }
+  .btn-primary:hover { transform: translateY(-2px); background: #9b33ff; }
+  .btn-primary:active { transform: translateY(0px) scale(0.98); }
+  .btn-primary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--void);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1rem 1.9rem;
+    border-radius: 999px;
+    transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 240ms ease;
+  }
+  .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5); }
+  .btn-dark:focus-visible { outline: 2px solid var(--void); outline-offset: 3px; }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--violet-soft); outline-offset: 3px; border-radius: 4px; }
+
+  .divider-hair { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); }
+
+  .img-frame { position: relative; overflow: hidden; }
+  .img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,9,13,0.85), rgba(5,9,13,0.15) 55%, transparent 80%);
+    pointer-events: none;
+  }
+  .img-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--violet);
+    mix-blend-mode: multiply;
+    opacity: 0.16;
+    pointer-events: none;
+  }
+
+  .nav-drop { opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; }
+  .group:hover .nav-drop, .group:focus-within .nav-drop { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  .link-arrow { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--violet-soft); font-weight: 600; font-size: 0.85rem; }
+  .link-arrow svg { transition: transform 200ms ease; }
+  .link-arrow:hover svg { transform: translateX(3px); }
+
+  .page-hero { position: relative; overflow: hidden; padding-top: 8.5rem; padding-bottom: 4rem; background: var(--void); }
+  .page-hero .bg-wash { position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 0%, rgba(139,25,255,0.14), transparent 60%); pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary, .btn-dark, .nav-drop, .link-arrow svg {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[var(--void)]/80 border-b border-white/5">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-4">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="brand_assets/logo-dark-background.png" alt="Dan Black Digital" class="h-9 w-9 rounded-[10px]" />
+      <span class="hidden sm:block text-white font-semibold-tight tracking-tight text-[0.95rem]">
+        DAN BLACK <span class="text-white/50 font-light-display">DIGITAL</span>
+      </span>
+    </a>
+    <div class="hidden md:flex items-center gap-9 text-[0.82rem] font-medium text-white/70">
+      <div class="relative group">
+        <a href="expertise.html" class="flex items-center gap-1 hover:text-white transition-colors">
+          Expertise
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav-drop absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72">
+          <div class="rounded-xl border border-white/10 p-2 card-shadow" style="background: var(--ink);">
+            <a href="expertise.html#strategy" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Digital Strategy &amp; Transformation</a>
+            <a href="expertise.html#information-management" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Information Management &amp; CDE</a>
+            <a href="expertise.html#golden-thread" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Golden Thread &amp; Building Safety</a>
+            <a href="expertise.html#bim-advisory" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">BIM Advisory &amp; Capability</a>
+            <a href="index.html#courses" class="block px-3 py-2.5 rounded-lg hover:bg-white/5 text-sm text-white/75 hover:text-white transition-colors">Courses &amp; Templates</a>
+          </div>
+        </div>
+      </div>
+      <a href="our-story.html" class="hover:text-white transition-colors">Our Story</a>
+      <a href="work-impact.html" class="text-white transition-colors">Work &amp; Impact</a>
+      <a href="index.html#courses" class="hover:text-white transition-colors">Courses &amp; templates</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </div>
+    <a href="#contact" class="btn-primary !py-3 !px-5 !text-[0.7rem]">Book a consultation</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero px-6 lg:px-10">
+    <div class="bg-wash"></div>
+    <div class="relative max-w-7xl mx-auto">
+      <p class="eyebrow mb-4">Work &amp; Impact</p>
+      <h1 class="font-light-display text-[2.1rem] leading-[1.1] sm:text-4xl lg:text-5xl text-white mb-6 max-w-3xl">
+        Where the work has actually landed.
+      </h1>
+      <p class="text-white/60 text-[1.02rem] max-w-2xl">
+        A cross-section of engagements — from setting a digital direction at board level to getting a
+        Common Data Environment working on the ground.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DISCIPLINE STRIP ============ -->
+  <section class="border-y border-white/5" style="background: var(--charcoal);">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 py-10">
+      <p class="text-center text-white/40 text-xs tracking-[0.15em] uppercase mb-6">Built on real project experience across the full lifecycle</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-white/70 font-semibold-tight text-sm sm:text-base">
+        <span>Sales</span>
+        <span class="text-white/15">·</span>
+        <span>Quantity Surveying</span>
+        <span class="text-white/15">·</span>
+        <span>Revit Modelling</span>
+        <span class="text-white/15">·</span>
+        <span>BIM Management</span>
+        <span class="text-white/15">·</span>
+        <span>Digital Transformation &amp; Information Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENGAGEMENTS ============ -->
+  <section class="px-6 lg:px-10 py-24">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-light-display text-3xl sm:text-4xl mb-10">Example Engagements</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="Digital roadmap engagement" />
+          </div>
+          <p class="eyebrow mb-2">Design Practice · Digital Strategy</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">Digital Roadmap for a Growing Practice</h3>
+          <p class="text-white/45 text-sm mb-3">Design practice, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="Residential CDE setup engagement" />
+          </div>
+          <p class="eyebrow mb-2">Residential · CDE Setup</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">Common Data Environment Setup</h3>
+          <p class="text-white/45 text-sm mb-3">Multi-site developer, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="Golden Thread readiness engagement" />
+          </div>
+          <p class="eyebrow mb-2">Infrastructure · Golden Thread</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">Golden Thread Readiness Assessment</h3>
+          <p class="text-white/45 text-sm mb-3">Principal contractor, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/0C141D/2A3542?text=" alt="EIR and BEP drafting engagement" />
+          </div>
+          <p class="eyebrow mb-2">Design · EIR &amp; BEP</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">EIR &amp; BEP Review and Drafting</h3>
+          <p class="text-white/45 text-sm mb-3">Design practice, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/0C141D/2A3542?text=" alt="BIM capability uplift engagement" />
+          </div>
+          <p class="eyebrow mb-2">Contractor · BIM Advisory</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">BIM Capability Uplift</h3>
+          <p class="text-white/45 text-sm mb-3">Mid-sized contractor, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+        <article>
+          <div class="img-frame rounded-xl overflow-hidden card-shadow mb-4" style="aspect-ratio: 4/3;">
+            <img src="https://placehold.co/700x525/131E28/2A3542?text=" alt="Ongoing advisory retainer" />
+          </div>
+          <p class="eyebrow mb-2">Ongoing · Advisory Retainer</p>
+          <h3 class="text-white font-semibold-tight text-lg mb-1">Continuous Compliance &amp; Governance Support</h3>
+          <p class="text-white/45 text-sm mb-3">Principal designer, UK</p>
+          <a href="#contact" class="link-arrow">Learn more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDY 1 ============ -->
+  <section class="px-6 lg:px-10 pb-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="img-frame relative rounded-2xl overflow-hidden card-shadow" style="aspect-ratio: 16/8;">
+        <img src="https://placehold.co/1600x800/0C141D/2A3542?text=" alt="Digital roadmap workshop in progress" />
+        <div class="absolute left-6 bottom-6 sm:left-9 sm:bottom-9 max-w-md">
+          <p class="eyebrow mb-2">Case study</p>
+          <h3 class="text-white font-light-display text-2xl sm:text-3xl">Setting a digital roadmap a practice could actually follow</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDY 2 ============ -->
+  <section class="px-6 lg:px-10 py-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="img-frame relative rounded-2xl overflow-hidden card-shadow" style="aspect-ratio: 16/8;">
+        <img src="https://placehold.co/1600x800/131E28/2A3542?text=" alt="Golden Thread audit in progress" />
+        <div class="absolute left-6 bottom-6 sm:left-9 sm:bottom-9 max-w-md">
+          <p class="eyebrow mb-2">Case study</p>
+          <h3 class="text-white font-light-display text-2xl sm:text-3xl">Inside a Golden Thread audit</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="relative px-6 lg:px-10 pb-24 pt-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden px-8 py-14 sm:px-14 sm:py-16 text-center" style="background: var(--violet);">
+        <div class="grain" style="opacity:0.12;"></div>
+        <div class="relative max-w-2xl mx-auto">
+          <img src="brand_assets/logo-accent-background.png" alt="Dan Black Digital" class="h-14 w-14 rounded-2xl mx-auto mb-8" />
+          <h2 class="font-light-display text-3xl sm:text-4xl lg:text-5xl mb-6" style="color: var(--void);">
+            Want to be the next case study?
+          </h2>
+          <p class="max-w-xl mx-auto mb-10 text-[1.02rem]" style="color: rgba(5,9,13,0.72);">
+            Book a call. We'll figure out whether this is a quick fix or a proper engagement — no pressure either way.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="mailto:hello@danblackdigital.co.uk" class="btn-dark">Contact us</a>
+            <a href="mailto:hello@danblackdigital.co.uk" class="font-semibold-tight text-sm tracking-wide" style="color: var(--void);">hello@danblackdigital.co.uk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="px-6 lg:px-10 py-14" style="background: var(--void);">
+  <div class="max-w-6xl mx-auto">
+    <div class="divider-hair mb-10"></div>
+    <div class="grid sm:grid-cols-[1fr_auto] gap-10 mb-10">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="brand_assets/logo-dark-background.png" alt="Dan Black Digital" class="h-8 w-8 rounded-[8px]" />
+        <span class="text-white/80 font-semibold-tight text-sm">DAN BLACK DIGITAL</span>
+      </a>
+      <div class="flex flex-wrap gap-x-14 gap-y-8">
+        <div>
+          <p class="text-white/30 text-xs tracking-[0.15em] uppercase mb-3">Links</p>
+          <div class="flex flex-col gap-2 text-white/55 text-sm">
+            <a href="expertise.html" class="hover:text-white transition-colors">Expertise</a>
+            <a href="our-story.html" class="hover:text-white transition-colors">Our Story</a>
+            <a href="work-impact.html" class="hover:text-white transition-colors">Work &amp; Impact</a>
+            <a href="index.html#courses" class="hover:text-white transition-colors">Courses &amp; templates</a>
+            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs tracking-[0.15em] uppercase mb-3">Legal</p>
+          <div class="flex flex-col gap-2 text-white/55 text-sm">
+            <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-white/30 text-xs tracking-[0.15em] uppercase mb-3">Socials</p>
+          <div class="flex flex-col gap-2 text-white/55 text-sm">
+            <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-white/25 text-xs max-w-2xl">
+        Templates and courses are practical guidance, not a substitute for formal compliance sign-off.
+      </p>
+      <p class="text-white/30 text-xs">© 2026 Dan Black Digital</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

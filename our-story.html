@@ -93,7 +93,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--violet);
+    background: #fff;
     color: var(--void);
     font-weight: 600;
     font-size: 0.78rem;
@@ -102,11 +102,11 @@
     padding: 1rem 1.9rem;
     border-radius: 999px;
     transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 240ms ease, background 240ms ease;
-    box-shadow: 0 14px 30px -10px rgba(139,25,255,0.55);
+    box-shadow: 0 14px 30px -10px rgba(139,25,255,0.35);
   }
-  .btn-primary:hover { transform: translateY(-2px); background: #9b33ff; }
+  .btn-primary:hover { transform: translateY(-2px); background: #f1f1f3; box-shadow: 0 18px 36px -10px rgba(139,25,255,0.45); }
   .btn-primary:active { transform: translateY(0px) scale(0.98); }
-  .btn-primary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .btn-primary:focus-visible { outline: 2px solid var(--violet-soft); outline-offset: 3px; }
 
   .btn-ghost {
     display: inline-flex;
@@ -122,25 +122,8 @@
     border: 1px solid rgba(255,255,255,0.18);
     transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), border-color 240ms ease, background 240ms ease;
   }
-  .btn-ghost:hover { border-color: var(--violet-soft); background: rgba(139,25,255,0.08); transform: translateY(-2px); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06); transform: translateY(-2px); }
   .btn-ghost:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-
-  .btn-dark {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--void);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 1.9rem;
-    border-radius: 999px;
-    transition: transform 240ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 240ms ease;
-  }
-  .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(0,0,0,0.5); }
-  .btn-dark:focus-visible { outline: 2px solid var(--void); outline-offset: 3px; }
 
   a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--violet-soft); outline-offset: 3px; border-radius: 4px; }
 
@@ -235,7 +218,7 @@
       <a href="index.html#courses" class="hover:text-white transition-colors">Courses &amp; templates</a>
       <a href="#contact" class="hover:text-white transition-colors">Contact</a>
     </div>
-    <a href="#contact" class="btn-primary !py-3 !px-5 !text-[0.7rem]">Book a consultation</a>
+    <a href="#contact" class="btn-primary !py-3 !px-5 !text-[0.7rem]">Get in touch</a>
   </nav>
 </header>
 
@@ -325,19 +308,21 @@
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="relative px-6 lg:px-10 pb-24">
     <div class="max-w-7xl mx-auto">
-      <div class="relative rounded-2xl overflow-hidden px-8 py-14 sm:px-14 sm:py-16 text-center" style="background: var(--violet);">
-        <div class="grain" style="opacity:0.12;"></div>
+      <div class="relative rounded-2xl overflow-hidden px-8 py-14 sm:px-14 sm:py-16 text-center card-shadow">
+        <img src="https://placehold.co/1600x700/0C141D/2A3542?text=" alt="" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(139,25,255,0.5), rgba(5,9,13,0.88));"></div>
+        <div class="grain" style="opacity:0.10;"></div>
         <div class="relative max-w-2xl mx-auto">
           <img src="brand_assets/logo-accent-background.png" alt="Dan Black Digital" class="h-14 w-14 rounded-2xl mx-auto mb-8" />
-          <h2 class="font-light-display text-3xl sm:text-4xl lg:text-5xl mb-6" style="color: var(--void);">
+          <h2 class="font-light-display text-3xl sm:text-4xl lg:text-5xl mb-6 text-white">
             Let's talk about where you're headed.
           </h2>
-          <p class="max-w-xl mx-auto mb-10 text-[1.02rem]" style="color: rgba(5,9,13,0.72);">
+          <p class="max-w-xl mx-auto mb-10 text-[1.02rem] text-white/70">
             Book a call. We'll figure out whether this is a quick fix or a proper engagement — no pressure either way.
           </p>
           <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="mailto:hello@danblackdigital.co.uk" class="btn-dark">Contact us</a>
-            <a href="mailto:hello@danblackdigital.co.uk" class="font-semibold-tight text-sm tracking-wide" style="color: var(--void);">hello@danblackdigital.co.uk</a>
+            <a href="mailto:hello@danblackdigital.co.uk" class="btn-primary">Contact us</a>
+            <a href="mailto:hello@danblackdigital.co.uk" class="font-semibold-tight text-sm tracking-wide" style="color: var(--violet-soft);">hello@danblackdigital.co.uk</a>
           </div>
         </div>
       </div>
@@ -381,10 +366,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-white/25 text-xs max-w-2xl">
-        Templates and courses are practical guidance, not a substitute for formal compliance sign-off.
-      </p>
+    <div class="flex items-center justify-center">
       <p class="text-white/30 text-xs">© 2026 Dan Black Digital</p>
     </div>
   </div>
